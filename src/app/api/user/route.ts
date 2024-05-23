@@ -7,11 +7,11 @@ export async function GET() {
     data: [
       {
         id: 1,
-        name: "Taufan Fadhilah",
+        name: "Seiryo Pramanda",
       },
       {
         id: 2,
-        name: "Fadhilah Taufan",
+        name: "Naura Anbar",
       },
     ],
     status: 200,

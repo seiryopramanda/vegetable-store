@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   description: "Vegeta",
   applicationName: "Vegeta",
   authors: {
-    name: "Taufan Fadhilah",
-    url: "https://taufanfadhilah.web.id/",
+    name: "Seiryo Pramanda",
+    url: "https://www.linkedin.com/in/seiryopramanda/",
   },
   icons: "/logo.svg",
 };

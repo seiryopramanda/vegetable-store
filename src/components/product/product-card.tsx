@@ -16,9 +16,8 @@ export interface ProductDetails {
   img: string;
   name: string;
   price: number;
-  unit: string;
   rating: number;
-  sold: number;
+  itemSold: number;
   itemCount?: number;
 }
 

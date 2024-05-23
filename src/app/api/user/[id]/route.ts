@@ -10,7 +10,7 @@ export async function GET(req: NextRequest, params: Params) {
       data: [
         {
           id,
-          name: "Taufan Fadhilah",
+          name: "Seiryo Pramanda",
           email: "qyI9y@example.com",
         },
       ],

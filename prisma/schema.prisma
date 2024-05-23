@@ -19,13 +19,20 @@ enum ProductCategory {
   SPICE
 }
 
+enum DeliveryType {
+  HOME_DELIVERY
+  STORE_PICKUP
+}
+
 model User {
-  id        String   @id @default(cuid())
-  name      String
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String        @id @default(cuid())
+  name        String
+  email       String        @unique
+  password    String
+  Checkout    Checkout[]
+  Transaction Transaction[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
 
   @@map("users")
 }
@@ -39,8 +46,44 @@ model Product {
   itemSold    Int             @default(0) @db.UnsignedInt
   rating      Int             @default(5) @db.UnsignedInt
   category    ProductCategory
+  Checkout    Checkout[]
   createdAt   DateTime        @default(now())
   updatedAt   DateTime        @updatedAt
 
   @@map("products")
+}
+
+model Checkout {
+  id            String   @id @default(cuid())
+  userId        String
+  productId     String
+  transactionId String?
+  qty           Int      @default(0) @db.UnsignedInt
+  pricePerItem  Int      @default(0) @db.UnsignedInt
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user        User         @relation(fields: [userId], references: [id])
+  product     Product      @relation(fields: [productId], references: [id])
+  transaction Transaction? @relation(fields: [transactionId], references: [id])
+
+  @@map("checkouts")
+}
+
+model Transaction {
+  id              String       @id @default(cuid())
+  userId          String
+  totalPrice      Int          @default(0) @db.UnsignedInt
+  deliveryFee     Int          @default(0) @db.UnsignedInt
+  asuranceFee     Int          @default(0) @db.UnsignedInt
+  applicationFee  Int          @default(0) @db.UnsignedInt
+  grandTotalPrice Int          @default(0) @db.UnsignedInt
+  deliveryType    DeliveryType @default(HOME_DELIVERY)
+  Checkout        Checkout[]
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("transactions")
 }

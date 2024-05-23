@@ -84,16 +84,32 @@ const CommonFooter: React.FC<HeaderProps> = () => {
                 <LogoVegeta className="w-[166px] h-[43px]" />
 
                 <div className="flex gap-2">
-                  <Link href="/">
+                  <Link
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <IconFacebook className="w-7 h-7" />
                   </Link>
-                  <Link href="/">
+                  <Link
+                    href="https://www.instagram.com/seiprambs/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <IconInstagram className="w-7 h-7" />
                   </Link>
-                  <Link href="/">
+                  <Link
+                    href="https://www.youtube.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <IconYoutube className="w-7 h-7" />
                   </Link>
-                  <Link href="/">
+                  <Link
+                    href="https://twitter.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <IconTwitter className="w-7 h-7" />
                   </Link>
                 </div>
@@ -103,11 +119,11 @@ const CommonFooter: React.FC<HeaderProps> = () => {
                   </Link>
                   <Link className="flex gap-2" href="/">
                     <IconEnvelope className="w-6 h-6" />{" "}
-                    <span>hi@vegeta.test</span>
+                    <span>hi@vegeta.com</span>
                   </Link>
                   <Link className="flex gap-2" href="/">
                     <IconLocation className="w-6 h-6" />{" "}
-                    <span>Jl. Cendrawasin No. 10 Klojen Malang</span>
+                    <span>Jl. RS. Fatmawati Raya No.45, Jakarta Selatan</span>
                   </Link>
                   <Link className="flex gap-2" href="/">
                     <IconSchedule className="w-6 h-6" />{" "}
@@ -174,8 +190,12 @@ const CommonFooter: React.FC<HeaderProps> = () => {
             </div>
             <div className="">
               Made by{" "}
-              <a href="https://taufanfadhilah.web.id/">
-                <span className="text-leaf">@taufanfadhilah</span>
+              <a
+                href="https://www.linkedin.com/in/seiryopramanda/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="text-leaf">@seiryopramanda</span>
               </a>
             </div>
           </div>

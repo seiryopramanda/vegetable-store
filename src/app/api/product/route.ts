@@ -19,6 +19,12 @@ export async function GET(req: NextRequest) {
       ? parseInt(query.get("maxPrice") as string)
       : undefined;
 
+    const ratings =
+      query
+        .get("rating")
+        ?.split(",")
+        .map((val) => +val) || undefined;
+
     const skip = take * page;
 
     const queryCondition = {
@@ -31,11 +37,14 @@ export async function GET(req: NextRequest) {
             gte: minPrice,
             lte: maxPrice,
           },
+          rating: {
+            in: ratings,
+          },
         },
       ],
     };
 
-    const totalProducts = await prisma.product.count({});
+    const totalProducts = await prisma.product.count({ where: queryCondition });
     const products = await prisma.product.findMany({
       take,
       skip,
